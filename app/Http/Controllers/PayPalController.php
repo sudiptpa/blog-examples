@@ -72,6 +72,8 @@ class PayPalController extends Controller
         ]);
 
         if ($response->isSuccessful()) {
+            $order->update(['transaction_id' => $response->getTransactionReference()]);
+
             return redirect()->route('app.home', encrypt($order_id))->with([
                 'message' => 'You recent payment is sucessful with reference code ' . $response->getTransactionReference(),
             ]);
