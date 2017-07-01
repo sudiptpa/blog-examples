@@ -27,5 +27,5 @@ Route::get('/paypal/checkout/{order}/cancelled', [
 Route::post('/webhook/paypal/{order?}/{env?}', [
     'name' => 'PayPal Express IPN',
     'as' => 'webhook.paypal.ipn',
-    'uses' => 'PayPalController@checkout',
+    'uses' => 'PayPalController@webhook',
 ]);
