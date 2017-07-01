@@ -83,9 +83,9 @@ class EbayController extends Controller
          * Provide a title and description and other information such as the item's location.
          * Note that any HTML in the title or description must be converted to HTML entities.
          */
-        $item->Title = 'Water Pump & Housing 41011 Mazda Tribute MPV & Ford Escape 3.0 V6 00/01/02/03';
+        $item->Title = 'Water Pump & Housing 41011 Mazda Tribute MPV & Ford Escape 3.0 V6 00/01/02/03 099gg';
         $item->Description = 'Gates Water Pump and Housing to suit 3.0 V6 Mazda Tribute / MPV 2000-2003. ***If your vehicle is a 2003 model please pay particular attention to the pipe sizes*** This Pump features a complete housing with hose sizes of approx. 38mm / 32mm / 19mm. Dont waste your time in just replacing the water pump itself when you may need a new housing as well. A quality Gates product brought to you by TLC Automotive Parts.';
-        $item->SKU = 'ABC-002';
+        $item->SKU = 'ABC-004';
         $item->Country = 'US';
         $item->Location = 'Beverly Hills';
         $item->PostalCode = '90210';
@@ -214,9 +214,9 @@ class EbayController extends Controller
         return $item;
     }
 
-/**
- * Sends the passed item to eBay for verification.
- */
+    /**
+     * Sends the passed item to eBay for verification.
+     */
     public function verifyItem($item)
     {
         $request = new Types\VerifyAddFixedPriceItemRequestType();

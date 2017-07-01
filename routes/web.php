@@ -1,20 +1,31 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
+Route::get('/{order?}', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'app.home',
+    'uses' => 'PayPalController@form',
+]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/checkout/payment/{order}/paypal', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'checkout.payment.paypal',
+    'uses' => 'PayPalController@checkout',
+]);
 
-dd(strlen(htmlentities('Water Pump & Housing 41011 Mazda Tribute MPV & Ford Escape 3.0 V6 00/01/02/03')));
+Route::get('/paypal/checkout/{order}/completed', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'paypal.checkout.completed',
+    'uses' => 'PayPalController@completed',
+]);
 
-Route::get('/publish', 'EbayController@publish');
+Route::get('/paypal/checkout/{order}/cancelled', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'paypal.checkout.cancelled',
+    'uses' => 'PayPalController@cancelled',
+]);
+
+Route::post('/webhook/paypal/{order?}/{env?}', [
+    'name' => 'PayPal Express IPN',
+    'as' => 'webhook.paypal.ipn',
+    'uses' => 'PayPalController@checkout',
+]);
