@@ -1,8 +1,20 @@
 <?php
 
-Route::get('/{order?}', [
-    'name' => 'PayPal Express Checkout',
+Route::get('/', [
+    'name' => 'Home',
     'as' => 'app.home',
+    'uses' => 'HomeController@home',
+]);
+
+Route::get('/calculator', [
+    'name' => 'Loan Calculator',
+    'as' => 'loan.calculator',
+    'uses' => 'CalculatorController@calculator',
+]);
+
+Route::get('/paypal/{order?}', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'order.paypal',
     'uses' => 'PayPalController@form',
 ]);
 

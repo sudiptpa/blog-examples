@@ -98,11 +98,154 @@
                 background: #0069ff;
                 color: #fff;
             }
+
+            input[type=range] {
+                -webkit-appearance: none;
+                background: #EFEEEF;
+                padding: 0px;
+                border: 0px !important;
+                height: 30px;
+                width: inherit;
+            }
+            input[type=radio] {
+                height: 24px;
+                width: 24px;
+            }
+            input[type=radio]::-webkit {
+                background: #000;
+            }
+            input[type=range]::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 7px;
+                background: #aaa;
+                border: #EFEEEF;
+                border-radius: 3px;
+                color: red;
+            }
+            input[type=range]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border: 40px;
+                border-color: #EFEEEF;
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background: black;
+                margin-top: -9px;
+            }
+            input[type=range]:focus {
+                outline: none;
+            }
+            input[type=range]:focus::-webkit-slider-runnable-track {
+                background: #ccc;
+            }
+            input[type=range]::-moz-range-track {
+                height: 10px;
+                border: none;
+                border-radius: 3px;
+            }
+            input[type=range]::-moz-range-thumb {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background: black;
+                margin-top: -9px;
+            }
+
+            input[type=range]:-moz-focusring {
+                outline-offset: -1px;
+            }
+            input[type=range]:focus::-moz-range-track {
+                background: #ccc;
+            }
+            input[type=range]::-ms-track {
+                width: 100%;
+                height: 7px;
+                background: transparent;
+                border-color: transparent;
+                border-width: 6px 0;
+                color: transparent;
+            }
+            input[type=range]::-ms-fill-lower {
+                background: #777;
+                border-radius: 10px;
+            }
+            input[type=range]::-ms-fill-upper {
+                background: #ddd;
+                border-radius: 10px;
+            }
+            input[type=range]::-ms-thumb {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background: black;
+                margin-top: -3px;
+            }
+            input[type=range]:focus::-ms-fill-lower {
+                background: #888;
+            }
+            input[type=range]:focus::-ms-fill-upper {
+                background: #ccc;
+            }
+            input[type=range]::-ms-tooltip {
+                display: none;
+            }
+            .lc-page1,
+            .lc-page2,
+            .lc-page3 {
+                font-family: "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans- serif;
+                font-size: 14px;
+                color: #000;
+                padding: 20px;
+                background: #EFEEEF;
+            }
+            .lc-intro {
+                font-size: 24px;
+            }
+            .lc-loan-repayment-col {
+                width: 1%;
+                text-align: center;
+                vertical-align: top;
+            }
+            .lc-loan-repayment-text {
+                padding: 2px;
+            }
+            .lc-loan-tbl {
+                width: 100%;
+            }
+            .lc-loan-tbl-row {} .lc-loan-tbl-title {
+                width: 33%;
+            }
+            .lc-loan-tbl-value {
+                width: 100%;
+            }
+            .lc-loan-tbl-rate {
+                white-space: nowrap;
+                padding-right: 20px;
+            }
+            .lc-repayment-intro {} .lc-button {
+                padding: 5px 15px;
+                background: #8E8E8E;
+                color: #000;
+                border: 0;
+                font-size: 18px;
+                border-radius: 4px;
+            }
+            .lc-details {} .lc-loan-details-tbl {} .lc-loan-details-title {} .lc-loan-details-value {} .lc-button-link {
+                background: none !important;
+                border: none;
+                padding: 0 !important;
+                font: inherit;
+                cursor: pointer;
+                color: darkblue;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center">
             @yield('content')
+        </div>
+        <div class="footer">
+            @yield('footer')
         </div>
     </body>
 </html>

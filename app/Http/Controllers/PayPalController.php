@@ -36,7 +36,7 @@ class PayPalController extends Controller
 
         $response = $paypal->purchase([
             'amount' => $paypal->formatAmount($order->amount),
-            'transactionId' => 206,
+            'transactionId' => $order->id,
             'currency' => 'USD',
             'cancelUrl' => $paypal->getCancelUrl($order),
             'returnUrl' => $paypal->getReturnUrl($order),
@@ -64,7 +64,7 @@ class PayPalController extends Controller
 
         $response = $paypal->complete([
             'amount' => $paypal->formatAmount($order->amount),
-            'transactionId' => 206,
+            'transactionId' => $order->id,
             'currency' => 'USD',
             'cancelUrl' => $paypal->getCancelUrl($order),
             'returnUrl' => $paypal->getReturnUrl($order),
@@ -74,7 +74,7 @@ class PayPalController extends Controller
         if ($response->isSuccessful()) {
             $order->update(['transaction_id' => $response->getTransactionReference()]);
 
-            return redirect()->route('app.home', encrypt($order_id))->with([
+            return redirect()->route('order.paypal', encrypt($order_id))->with([
                 'message' => 'You recent payment is sucessful with reference code ' . $response->getTransactionReference(),
             ]);
         }
@@ -91,7 +91,7 @@ class PayPalController extends Controller
     {
         $order = Order::findOrFail($order_id);
 
-        return redirect()->route('app.home', encrypt($order_id))->with([
+        return redirect()->route('order.paypal', encrypt($order_id))->with([
             'message' => 'You have cancelled your recent PayPal payment !',
         ]);
     }
