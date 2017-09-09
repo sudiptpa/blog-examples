@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Laravel\Horizon\HorizonServiceProvider::class,
 
         /*
          * Application Service Providers...
